@@ -1,4 +1,6 @@
-<?php namespace Config;
+<?php
+
+namespace Config;
 
 class Validation
 {
@@ -33,4 +35,40 @@ class Validation
 	//--------------------------------------------------------------------
 	// Rules
 	//--------------------------------------------------------------------
+
+	public $validatePaginate = [
+		'page' => [
+			'rules' => 'required|is_natural_no_zero'
+		],
+		'pageSize' => [
+			'rules' => 'required|is_natural_no_zero'
+		]
+	];
+
+	public $createProduct = [
+		'name' => [
+			'rules' => 'required|min_length[3]|max_length[100]'
+		],
+		'description' => [
+			'rules' => 'required|min_length[3]|max_length[100]'
+		]
+	];
+
+	public $searchProduct = [
+		'query' => [
+			'rules' => 'required|alpha_numeric_space'
+		]
+	];
+
+	public $showSlug = [
+		'slug' => [
+			'rules' => 'required|regex_match[/^[a-z0-9\-]*$/]'
+		]
+	];
+
+	public $createQuestion = [
+		'question' => [
+			'rules' => 'required|min_length[3]|max_length[100]'
+		]
+	];
 }
