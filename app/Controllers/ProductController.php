@@ -31,7 +31,13 @@ class ProductController extends ResourceController
 
   public function show($id = null)
   {
-    return $this->respond($this->model->find($id));
+    $product = $this->model->find($id);
+
+    if (empty($product)) {
+      return $this->respond(null, 404, lang('Product.notFound'));
+    }
+
+    return $this->respond($product);
   }
 
   /**
