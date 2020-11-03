@@ -50,12 +50,12 @@ if (file_exists(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
 	require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
 }
 
-$routes->get('product/search', 'ProductController::search');
+$routes->get('products/search', 'ProductController::search');
 
-$routes->get('product/slug/(:segment)', 'ProductController::showWithSlug/$1');
+$routes->get('products/slug/(:segment)', 'ProductController::showWithSlug/$1');
 
-$routes->get('product/(:segment)/variants', 'ProductController::showWithVariant/$1');
+$routes->get('products/(:segment)/variants', 'ProductController::showWithVariant/$1');
 
-$routes->post('product/(:segment)/question', 'ProductController::createQuestion/$1');
+$routes->post('products/(:segment)/question', 'ProductController::createQuestion/$1');
 
-$routes->resource('product', ['controller' => 'ProductController']);
+$routes->resource('products', ['controller' => 'ProductController']);
